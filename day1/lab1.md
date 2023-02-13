@@ -8,7 +8,8 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.
 sudo apt-get update
 sudo apt-get install helm
 ```
-add bitnami repo:
+
+#### add bitnami repo:
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
 ```

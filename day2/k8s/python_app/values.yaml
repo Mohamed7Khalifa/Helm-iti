@@ -1,0 +1,22 @@
+labels:
+  deployment:
+    name: devops-challenge-app
+
+  configmap:
+    name: devops-challenge-cm
+
+replicaCount: 3
+
+container:
+  name: devops-challenge-app
+  image: 
+    repository: docker.io/osamahassan/paython_helm_app
+  port: 80
+
+service:
+  type: loadbalancer
+  port: 80
+  targetPort: 8000
+  nodePort: 30080
+
+#--------------------------------------------------------------------------------------
