@@ -1,22 +1,28 @@
-# Default values for python-chart2.
+# Default values for redis-chart1.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+
+redisLabel:
+  app: redis
+
+redisService: 
+  name: redis
+  targetport: 6379
+  port: 6379
+
 replicaCount: 2
 
-container:
-  port: 8000
-
-configMap:
-  name: python-redis-config 
-
-
+redisContainer:
+  name: redis
+  port: 6379
+  image: docker.io/redis
 
 image:
-  repository: 95remon/python-project
+  repository: docker.io/redis
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0"
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -45,10 +51,8 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: NodePort
+  type: ClusterIP
   port: 80
-  targetport: 8000
-  nodeport: 30009
 
 ingress:
   enabled: false
@@ -90,3 +94,5 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+
